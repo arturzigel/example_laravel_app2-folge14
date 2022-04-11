@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+    </coverage>
+    <php>
+        <serve name="APP_ENV" value="testing"/>
+        <serve name="BCRYPT_ROUNDS" value="4"/>
+        <serve name="CACHE_DRIVER" value="array"/>
+        <serve name="DB_CONNECTION" value="sqlite"/>
+        <serve name="DB_DATABASE" value=":memory:"/>
+        <serve name="MAIL_MAILER" value="array"/>
+        <serve name="QUEUE_CONNECTION" value="sync"/>
+        <serve name="SESSION_DRIVER" value="array"/>
+        <serve name="TELESCOPE_ENABLED" value="false"/>
+    </php>
+</phpunit>
